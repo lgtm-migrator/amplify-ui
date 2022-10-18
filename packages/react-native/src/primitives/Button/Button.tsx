@@ -2,7 +2,7 @@ import React from 'react';
 import { Pressable, Text } from 'react-native';
 
 import { usePressableStyles, useTheme } from '../../hooks';
-import { baseStyles, getThemedStyles } from './styles';
+import { getThemedStyles } from './styles';
 import { ButtonProps } from './types';
 
 export default function Button({
@@ -19,9 +19,10 @@ export default function Button({
 
   const containerStyle = usePressableStyles({
     disabled: disabled,
-    disabledStyle: { ...baseStyles.disabled, ...themedButtonStyle.disabled },
+    disabledStyle: themedButtonStyle.disabled,
+    // there should be pressed default styles
     style: style,
-    themedStyle: { ...baseStyles.container, ...themedButtonStyle.container },
+    themedStyle: themedButtonStyle.container,
   });
 
   return (
@@ -32,7 +33,7 @@ export default function Button({
       {...pressableProps}
     >
       {typeof children === 'string' ? (
-        <Text style={[baseStyles.text, themedButtonStyle.text, textStyle]}>
+        <Text style={[themedButtonStyle.text, textStyle]}>
           {children}
         </Text>
       ) : (

@@ -7,22 +7,6 @@ import { Button } from '@aws-amplify/ui-react-native/dist/primitives';
 import { ThemeProvider } from '@aws-amplify/ui-react-native/dist/ThemeProvider';
 import { Theme, defaultTheme, ColorMode, defaultDarkModeOverride } from '@aws-amplify/ui-react-native/dist/theme';
 
-// const customTheme: Theme = {
-//   name: 'my-theme',
-//   tokens: {
-//     components: {
-//       button: {
-//         container: {
-//           borderColor: 'green',
-//         },
-//         text: {
-//           color: 'green',
-//         },
-//       },
-//     },
-//   },
-// };
-
 const customTheme: Theme = {
   name: 'my-theme',
   tokens: {

@@ -3,24 +3,10 @@ import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { ReactNativeTheme } from '../../theme';
 import { ButtonStyles } from './types';
 
-// We shouldn't need baseStyles as the theme itself would have all the base styles
-export const baseStyles: ButtonStyles = StyleSheet.create({
-  container: { borderWidth: 1, borderRadius: 4, padding: 8 },
-  text: { alignSelf: 'center' },
-  disabled: {
-    opacity: 0.8,
-  },
-});
-
-// export const getThemedStyles = (theme: ReactNativeTheme): ButtonStyles => {
-//   return StyleSheet.create({
-//     ...theme.tokens.components.button,
-//   });
-// };
-
 type Variation = 'default' | 'primary' | 'link';
 
 // need to accept variation / size?
+// should this just accept all potential modifiers like disabled?
 export const getThemedStyles = (theme: ReactNativeTheme, variation?: Variation): ButtonStyles => {
   const tokens = theme.tokens.components.button;
   const container: ViewStyle = {
@@ -31,13 +17,13 @@ export const getThemedStyles = (theme: ReactNativeTheme, variation?: Variation):
     borderColor: tokens.borderColor.value,
     paddingHorizontal: tokens.paddingInlineEnd.value,
     paddingVertical: tokens.paddingBlockEnd.value,
-    
   };
   const text: TextStyle = {
     color: tokens.color.value,
     fontSize: parseInt(tokens.fontSize.value),
   };
-  const disabled = {};
+  const disabled = {
+  };
   
   // We would need to know what properties exist
   if (variation) {
