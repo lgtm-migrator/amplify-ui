@@ -11,10 +11,11 @@ export default function Button({
   disabled,
   style,
   textStyle,
+  variation,
   ...pressableProps
 }: ButtonProps): JSX.Element {
   const theme = useTheme();
-  const themedButtonStyle = getThemedStyles(theme);
+  const themedButtonStyle = getThemedStyles(theme, variation);
 
   const containerStyle = usePressableStyles({
     disabled: disabled,

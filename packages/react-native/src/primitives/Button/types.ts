@@ -12,6 +12,8 @@ export interface ButtonProps extends Omit<PressableProps, 'style'> {
    * Styling for label
    */
   textStyle?: StyleProp<TextStyle>;
+  
+  variation?: 'default' | 'primary' | 'link';
 }
 
 export interface ButtonStyles {

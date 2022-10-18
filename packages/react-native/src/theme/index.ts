@@ -1,2 +1,3 @@
 export { createReactNativeTheme } from './createReactNativeTheme';
 export * from './types';
+export * from './defaultTheme';

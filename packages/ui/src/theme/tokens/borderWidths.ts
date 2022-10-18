@@ -23,6 +23,11 @@ export type WebBorderWidths = {
   [Property in keyof BorderWidths]: WebDesignToken<BorderWidthValue>;
 };
 
+export type RNBorderWidths = {
+  // borderWidth in React Native is only a number
+  [Property in keyof BorderWidths]: WebDesignToken<number>;
+}
+
 export const borderWidths: BorderWidths = {
   small: { value: '1px' },
   medium: { value: '2px' },

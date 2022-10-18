@@ -1,16 +1,51 @@
 // Internal Style Dictionary methods
 import deepExtend from 'style-dictionary/lib/utils/deepExtend';
-import get from 'lodash/get';
-import mapValues from 'lodash/mapValues';
+import resolveObject from 'style-dictionary/lib/utils/resolveObject';
+import usesReference from 'style-dictionary/lib/utils/references/usesReference';
 
 import { defaultTheme } from './defaultTheme';
 import { ColorMode, Theme, ReactNativeTheme } from './types';
-import { Tokens } from './tokens';
+import { DesignToken } from '@aws-amplify/ui';
+import { Tokens } from './types';
 
-const mapValuesDeep = (v: object | string, callback: Function): object =>
-  typeof v == 'object'
-    ? mapValues(v, (v) => mapValuesDeep(v, callback))
-    : (callback(v) as object);
+// This is pretty much the same as the setupTokens in ui package
+function setupTokens(obj: any, path?: Array<any>) {
+  let tokens = {};
+  path = path || [];
+
+  if (obj.hasOwnProperty('value')) {
+    return transformValue(obj);
+  } else if (typeof obj === 'object') {
+    for (const name in obj) {
+      if (obj.hasOwnProperty(name)) {
+        if (typeof obj[name] !== 'object') {
+          tokens[name] = obj[name];
+        } else {
+          tokens[name] = setupTokens(obj[name], path.concat(name));
+        }
+      }
+    }
+  }
+
+  return tokens;
+}
+
+function transformValue(token: DesignToken) {
+  const { value } = token;
+  if (usesReference(value)) {
+    return token;
+  } else if (typeof value === 'string') {
+    if (value.includes('rem')) {
+      return {value: Math.round( parseFloat(value.replace('rem','')) * 16)};
+    }
+    if (value.includes('px')) {
+      return {
+        value: Math.round(parseFloat(value.replace('px','')))
+      }
+    }
+  }
+  return token;
+}
 
 /**
  * This will be used like `const myTheme = createReactNativeTheme({})`
@@ -30,19 +65,26 @@ export const createReactNativeTheme = (
     defaultTheme,
     theme,
   ]) as ReactNativeTheme;
-  const { name, overrides } = mergedTheme;
+  let { name, overrides, breakpoints, tokens } = mergedTheme;
 
-  // Setting up the tokens.
-  // At the end of this, each token should have a raw value
-  // All references to tokens will be replaced
-  const tokens = mapValuesDeep(mergedTheme.tokens, (value: string) => {
-    return typeof value == 'string' && value.startsWith('{')
-      ? (get(
-          mergedTheme.tokens,
-          value.substring(1, value.length - 2) // remove { }
-        ) as string)
-      : value;
-  }) as Tokens;
+  let appliedOverrides = mergedTheme.overrides?.filter(override => {
+    if ('colorMode' in override) {
+      return override.colorMode === colorMode;
+    }
+  });
+  
+  if (appliedOverrides && appliedOverrides.length > 0) {
+    tokens = deepExtend([
+      {},
+      tokens,
+      ...appliedOverrides.map(override => override.tokens)
+    ]) as Tokens;
+  }
+  
+  // Resolve token references
+  tokens = resolveObject(
+    setupTokens(tokens)
+  );
 
   return {
     colorMode,
@@ -51,5 +93,6 @@ export const createReactNativeTheme = (
     // keep overrides separate from base theme
     // allows RN to dynamically switch themes in a provider.
     overrides,
+    breakpoints
   };
 };

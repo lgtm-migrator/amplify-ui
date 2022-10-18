@@ -12,7 +12,7 @@
     "dist": "tsc --project tsconfig.dist.json",
     "lint": "tsc --noEmit && eslint src",
     "prebuild": "rimraf dist",
-    "test": "jest --coverage",
+    "test": "jest",
     "test:watch": "yarn test --watch"
   },
   "devDependencies": {
