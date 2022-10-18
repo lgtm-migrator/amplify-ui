@@ -1,3 +1,6 @@
+import { FieldTokens } from '@aws-amplify/ui/dist/types/theme/tokens/components/field';
+import { FieldControlTokens } from '@aws-amplify/ui/dist/types/theme/tokens/components/fieldControl';
+import { ButtonTokens } from 'src/primitives/Button/tokens';
 import { PartialDeep } from 'type-fest';
 
 import { ButtonStyles } from '../primitives/Button';
@@ -16,7 +19,7 @@ export interface Theme {
   /**
    * The name of the theme.
    */
-  name: string;
+  // name: string;
   tokens?: PartialDeep<Tokens>;
   /**
    * Overrides allow you to change design tokens in different contexts, like
@@ -26,7 +29,9 @@ export interface Theme {
 }
 
 export interface ComponentStyles {
-  button: ButtonStyles;
+  button: ButtonTokens;
+  fieldcontrol: FieldControlTokens;
+  field: FieldTokens;
   // TODO: add other components
 }
 
@@ -38,3 +43,5 @@ export interface ComponentStyles {
 export interface ReactNativeTheme extends Theme {
   tokens: Tokens;
 }
+
+export { Tokens }

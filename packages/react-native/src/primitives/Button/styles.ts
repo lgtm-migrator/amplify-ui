@@ -13,6 +13,9 @@ export const baseStyles: ButtonStyles = StyleSheet.create({
 
 export const getThemedStyles = (theme: ReactNativeTheme): ButtonStyles => {
   return StyleSheet.create({
-    ...theme.tokens.components.button,
+    // we don't necessarily need to cast here, but we need 'input' and 'output'
+    // types for the theme since createTheme will modify the types of tokens
+    // This is what we do on the web, Theme is the input and WebTheme is the output
+    ...theme.tokens.components.button as ButtonStyles,
   });
 };

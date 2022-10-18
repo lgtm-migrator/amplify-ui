@@ -136,3 +136,7 @@ export const components: ComponentTokens = {
   togglebutton,
   togglebuttongroup,
 };
+
+export {
+  ButtonTokens
+}

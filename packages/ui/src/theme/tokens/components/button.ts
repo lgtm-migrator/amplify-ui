@@ -22,16 +22,16 @@ export interface StateTokens {
   borderColor: DesignToken<BorderColorValue>;
 }
 
-interface StateWithShadowTokens extends StateTokens {
+export interface StateWithShadowTokens extends StateTokens {
   boxShadow: DesignToken<BoxShadowValue>;
 }
 
-interface MenuStateDisabledTokens
+export interface MenuStateDisabledTokens
   extends Omit<StateTokens, 'borderColor' | 'backgroundColor'> {}
 
-interface MenuStateTokens extends Omit<StateTokens, 'borderColor'> {}
+export interface MenuStateTokens extends Omit<StateTokens, 'borderColor'> {}
 
-interface PrimaryVariationTokens {
+export interface PrimaryVariationTokens {
   borderWidth: DesignToken<BorderWidthValue>;
   borderStyle: DesignToken<BorderStyleValue>;
   borderColor: DesignToken<BorderColorValue>;
@@ -44,7 +44,7 @@ interface PrimaryVariationTokens {
   _active: StateTokens;
 }
 
-interface MenuVariationTokens {
+export interface MenuVariationTokens {
   borderWidth: DesignToken<BorderWidthValue>;
   backgroundColor: DesignToken<BackgroundColorValue>;
   justifyContent: DesignToken<JustifyContentValue>;
@@ -54,7 +54,7 @@ interface MenuVariationTokens {
   _disabled: MenuStateDisabledTokens;
 }
 
-interface LinkVariationTokens {
+export interface LinkVariationTokens {
   backgroundColor: DesignToken<BackgroundColorValue>;
   borderColor: DesignToken<BorderColorValue>;
   borderWidth: DesignToken<BorderWidthValue>;
@@ -66,7 +66,7 @@ interface LinkVariationTokens {
   _loading: StateTokens;
 }
 
-interface ButtonSizeTokens {
+export interface ButtonSizeTokens {
   fontSize: DesignToken<FontSizeValue>;
   paddingBlockStart: DesignToken<SpaceValue>;
   paddingBlockEnd: DesignToken<SpaceValue>;

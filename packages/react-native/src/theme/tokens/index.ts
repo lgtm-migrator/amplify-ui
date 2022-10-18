@@ -1,12 +1,12 @@
 import { components } from './components';
 import { ComponentStyles } from '../types';
-import { ColorValue } from '@aws-amplify/ui';
+import { ColorValue, BaseTheme, defaultTheme } from '@aws-amplify/ui';
 
 interface BaseTokens {
   colors: Partial<Colors>;
 }
 
-export interface Tokens extends BaseTokens {
+export interface Tokens extends Omit<BaseTheme['tokens'], 'components'> {
   components: ComponentStyles;
 }
 
@@ -48,6 +48,6 @@ export const colors: Partial<Colors> = {
 };
 
 export const tokens: Tokens = {
-  colors,
+  ...defaultTheme.tokens,
   components,
 };
