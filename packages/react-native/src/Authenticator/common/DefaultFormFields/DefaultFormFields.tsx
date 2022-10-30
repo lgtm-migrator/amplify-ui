@@ -6,11 +6,7 @@ import { DefaultComponents } from '../../Defaults';
 import { TextFieldOptionsType } from '../../hooks';
 import { FieldErrors } from './FieldErrors';
 import { styles } from './styles';
-import {
-  PasswordField,
-  PhoneNumberField,
-  TextField,
-} from '../../../primitives';
+import { PasswordField, TextField } from '../../../primitives';
 
 const DefaultFormFields: DefaultComponents<TextFieldOptionsType>[keyof DefaultComponents]['FormFields'] =
   ({ fields = [], isPending, validationErrors }) => {
@@ -22,12 +18,7 @@ const DefaultFormFields: DefaultComponents<TextFieldOptionsType>[keyof DefaultCo
 
       const hasError = errors?.length > 0;
 
-      const Field =
-        type === 'password'
-          ? PasswordField
-          : type === 'phone'
-          ? PhoneNumberField
-          : TextField;
+      const Field = type === 'password' ? PasswordField : TextField;
 
       return (
         <Fragment key={name}>
@@ -36,6 +27,7 @@ const DefaultFormFields: DefaultComponents<TextFieldOptionsType>[keyof DefaultCo
             disabled={isPending}
             error={hasError}
             key={name}
+            keyboardType={type === 'phone' ? 'phone-pad' : undefined}
             style={fieldStyle}
           />
           <FieldErrors errors={errors} style={styles.error} />
