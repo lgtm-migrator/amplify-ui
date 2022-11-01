@@ -16,10 +16,12 @@ export default function TextField({
   errorMessage,
   errorMessageStyle,
   fieldStyle,
+  formatValue,
   label,
   labelStyle,
   endAccessory,
   style,
+  value,
   ...rest
 }: TextFieldProps): JSX.Element {
   const fieldContainerStyle: ViewStyle = useMemo(
@@ -28,6 +30,11 @@ export default function TextField({
       ...(disabled && styles.disabled),
     }),
     [disabled]
+  );
+
+  const inputValue = useMemo(
+    () => (typeof formatValue === 'function' ? formatValue(value) : value),
+    [formatValue, value]
   );
 
   return (
@@ -46,6 +53,7 @@ export default function TextField({
           autoCapitalize={autoCapitalize}
           editable={!disabled}
           style={[styles.input, fieldStyle]}
+          value={inputValue}
         />
         {endAccessory ?? null}
       </View>

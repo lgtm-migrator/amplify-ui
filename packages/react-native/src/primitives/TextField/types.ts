@@ -34,6 +34,12 @@ export interface TextFieldProps extends Omit<TextInputProps, 'editable'> {
 
   /**
    * @description
+   * Formatting function  for the input field
+   */
+  formatValue?: (value: TextInputProps['value']) => TextInputProps['value'];
+
+  /**
+   * @description
    * Label text for field
    */
   label?: string;

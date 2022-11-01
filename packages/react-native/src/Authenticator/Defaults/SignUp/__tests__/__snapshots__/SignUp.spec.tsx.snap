@@ -463,54 +463,6 @@ Array [
       }
     >
       <View
-        style={
-          Array [
-            Object {
-              "flex": 1,
-              "height": 44,
-              "minWidth": 0,
-            },
-            undefined,
-          ]
-        }
-      >
-        <RNCPicker
-          items={
-            Array [
-              Object {
-                "label": "+1",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+1",
-              },
-              Object {
-                "label": "+7",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+7",
-              },
-            ]
-          }
-          numberOfLines={1}
-          onChange={[Function]}
-          selectedIndex={0}
-          style={
-            Array [
-              Object {
-                "height": 216,
-              },
-              Array [
-                Object {
-                  "height": 44,
-                },
-                undefined,
-              ],
-            ]
-          }
-          testID="RNPicker"
-        />
-      </View>
-      <View
         accessibilityLabel="Phone"
         accessibilityState={
           Object {
@@ -953,54 +905,6 @@ Array [
         ]
       }
     >
-      <View
-        style={
-          Array [
-            Object {
-              "flex": 1,
-              "height": 44,
-              "minWidth": 0,
-            },
-            undefined,
-          ]
-        }
-      >
-        <RNCPicker
-          items={
-            Array [
-              Object {
-                "label": "+1",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+1",
-              },
-              Object {
-                "label": "+7",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+7",
-              },
-            ]
-          }
-          numberOfLines={1}
-          onChange={[Function]}
-          selectedIndex={0}
-          style={
-            Array [
-              Object {
-                "height": 216,
-              },
-              Array [
-                Object {
-                  "height": 44,
-                },
-                undefined,
-              ],
-            ]
-          }
-          testID="RNPicker"
-        />
-      </View>
       <View
         accessibilityLabel="Phone"
         accessibilityState={
@@ -1581,54 +1485,6 @@ Array [
       }
     >
       <View
-        style={
-          Array [
-            Object {
-              "flex": 1,
-              "height": 44,
-              "minWidth": 0,
-            },
-            undefined,
-          ]
-        }
-      >
-        <RNCPicker
-          items={
-            Array [
-              Object {
-                "label": "+1",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+1",
-              },
-              Object {
-                "label": "+7",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+7",
-              },
-            ]
-          }
-          numberOfLines={1}
-          onChange={[Function]}
-          selectedIndex={0}
-          style={
-            Array [
-              Object {
-                "height": 216,
-              },
-              Array [
-                Object {
-                  "height": 44,
-                },
-                undefined,
-              ],
-            ]
-          }
-          testID="RNPicker"
-        />
-      </View>
-      <View
         accessibilityLabel="Phone"
         accessibilityState={
           Object {
@@ -2205,54 +2061,6 @@ Array [
         ]
       }
     >
-      <View
-        style={
-          Array [
-            Object {
-              "flex": 1,
-              "height": 44,
-              "minWidth": 0,
-            },
-            undefined,
-          ]
-        }
-      >
-        <RNCPicker
-          items={
-            Array [
-              Object {
-                "label": "+1",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+1",
-              },
-              Object {
-                "label": "+7",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+7",
-              },
-            ]
-          }
-          numberOfLines={1}
-          onChange={[Function]}
-          selectedIndex={0}
-          style={
-            Array [
-              Object {
-                "height": 216,
-              },
-              Array [
-                Object {
-                  "height": 44,
-                },
-                undefined,
-              ],
-            ]
-          }
-          testID="RNPicker"
-        />
-      </View>
       <View
         accessibilityLabel="Phone"
         accessibilityState={
@@ -2880,54 +2688,6 @@ Array [
         ]
       }
     >
-      <View
-        style={
-          Array [
-            Object {
-              "flex": 1,
-              "height": 44,
-              "minWidth": 0,
-            },
-            undefined,
-          ]
-        }
-      >
-        <RNCPicker
-          items={
-            Array [
-              Object {
-                "label": "+1",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+1",
-              },
-              Object {
-                "label": "+7",
-                "testID": undefined,
-                "textColor": undefined,
-                "value": "+7",
-              },
-            ]
-          }
-          numberOfLines={1}
-          onChange={[Function]}
-          selectedIndex={0}
-          style={
-            Array [
-              Object {
-                "height": 216,
-              },
-              Array [
-                Object {
-                  "height": 44,
-                },
-                undefined,
-              ],
-            ]
-          }
-          testID="RNPicker"
-        />
-      </View>
       <View
         accessibilityLabel="Phone"
         accessibilityState={

@@ -3,6 +3,7 @@ import { render } from '@testing-library/react-native';
 
 import { SignUp } from '..';
 import { authenticatorTextUtil } from '@aws-amplify/ui';
+import { TextInputProps } from 'react-native';
 
 const username = {
   name: 'username',
@@ -27,7 +28,9 @@ const phone = {
   label: 'Phone',
   placeholder: 'Phone',
   type: 'phone' as const,
-  dialCodes: ['+1', '+7'],
+  formatValue: (value: TextInputProps['value']) => {
+    return `+${value}`;
+  },
 };
 
 const fields = [username, password, confirmPassword, phone];

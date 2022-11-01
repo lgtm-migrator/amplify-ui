@@ -92,4 +92,16 @@ describe('TextField', () => {
     fireEvent.press(textInput);
     expect(onChangeText).not.toHaveBeenCalled();
   });
+
+  it('renders as expected with formatValue', () => {
+    const formatValue = (value: string | undefined) => {
+      return `+${value}`;
+    };
+    const { toJSON, getByTestId } = render(
+      <TextField {...defaultProps} formatValue={formatValue} value="123" />
+    );
+    expect(toJSON()).toMatchSnapshot();
+    const textInput = getByTestId(testID);
+    expect(textInput.props.value).toBe('+123');
+  });
 });

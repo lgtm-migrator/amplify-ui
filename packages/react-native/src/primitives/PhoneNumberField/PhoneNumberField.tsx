@@ -1,59 +1,26 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import { View } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import React from 'react';
 
 import { TextField } from '../TextField';
 import { PhoneNumberFieldProps } from './types';
 import { styles } from './styles';
 
+// replace whitespace and add +
+const phoneMask = (value: string | undefined) =>
+  value ? `+${value.replaceAll(/\s/g, '')}` : '';
+
 export default function PhoneNumberField({
-  defaultDialCode,
-  dialCodes,
   disabled,
-  inputStyle,
-  onDialCodeChange,
-  pickerItemStyle,
-  pickerStyle,
-  style,
+  formatValue,
+  fieldStyle,
   ...rest
 }: PhoneNumberFieldProps): JSX.Element | null {
-  const [selectedDialCode, setSelectedDialCode] = useState(defaultDialCode);
-
-  const handleOnValueChange = useCallback(
-    (itemValue: string) => {
-      setSelectedDialCode(itemValue);
-      onDialCodeChange?.(itemValue);
-    },
-    [onDialCodeChange]
-  );
-
-  const pickerItems = useMemo(() => {
-    return dialCodes?.map((dialCode) => {
-      return <Picker.Item label={dialCode} value={dialCode} key={dialCode} />;
-    });
-  }, [dialCodes]);
-
   return (
-    <View style={[styles.container, style]}>
-      {dialCodes ? (
-        <Picker
-          enabled={!disabled}
-          itemStyle={[styles.pickerItem, pickerItemStyle]}
-          mode="dropdown"
-          onValueChange={handleOnValueChange}
-          selectedValue={selectedDialCode}
-          testID="RNPicker"
-          style={[styles.picker, pickerStyle]}
-        >
-          {pickerItems}
-        </Picker>
-      ) : null}
-      <TextField
-        {...rest}
-        disabled={disabled}
-        keyboardType="phone-pad"
-        style={[styles.inputContainer, inputStyle]}
-      />
-    </View>
+    <TextField
+      {...rest}
+      disabled={disabled}
+      keyboardType="phone-pad"
+      style={[styles.inputContainer, fieldStyle]}
+      formatValue={formatValue ?? phoneMask}
+    />
   );
 }

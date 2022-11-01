@@ -7,6 +7,5 @@ export const KEY_ALLOW_LIST = [
   'type',
 
   // phone options only
-  'dialCode',
-  'dialCodeList',
+  'formatValue',
 ];
