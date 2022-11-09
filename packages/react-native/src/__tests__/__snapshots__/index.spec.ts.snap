@@ -7,6 +7,17 @@ Array [
   "Theme",
   "ThemeProvider",
   "UseAuthenticator",
+  "WithAuthenticatorOptions",
   "useAuthenticator",
+  "withAuthenticator",
+  "BannerMessageProps",
+  "CarouselMessageProps",
+  "FullScreenMessageProps",
+  "InAppMessageDisplay",
+  "InAppMessagingProvider",
+  "MessageComponents",
+  "ModalMessageProps",
+  "useInAppMessaging",
+  "withInAppMessaging",
 ]
 `;
